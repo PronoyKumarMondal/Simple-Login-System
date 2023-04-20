@@ -1,4 +1,5 @@
-
+import os
+clear = lambda: os.system('cls')
 def main():
     clear()
     print("Main Menu")
