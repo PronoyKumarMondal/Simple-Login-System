@@ -29,11 +29,11 @@ def register():
             break 
     #userName= sanitizeName(userName)
     while True:
-        userPassword= input("Enter Your Password")
+        userPassword= input("Enter Your Password: ")
         if userPassword !='':
             break
     while True:
-        confirmPassword=input("confirm Your password")
+        confirmPassword=input("confirm Your password: ")
         if confirmPassword==userPassword:
             break
         else:
@@ -97,7 +97,7 @@ def login():
                 break'''       
 
 def addUserInfo(userInfo:list):
-    with open('userInfo.txt','w') as file:
+    with open('userInfo.txt','a') as file:
         for info in userInfo:
             file.write(info)
             file.write(' ')
@@ -108,7 +108,7 @@ def userAlreadyExist(userName,userPassword):
     userInfo={}
     with open('userInfo.txt','r') as file:
         for line in file:
-            line=line.split()
+            line=line.split(' ')
             if line[0]==userName and line[1]== userPassword:
                 userInfo.update({line[0]:line[1]})
     if userInfo=={}:
